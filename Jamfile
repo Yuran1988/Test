@@ -15,11 +15,6 @@ if $(IDE) = VS8
 SubTree BT_INTECO_FSM ;
 SubTree BT_ROOT base inteco fsm ;
 
-
-### generate doxygen doku
-HBDoxyGen Demo ;
-
-
 # Add the project root and the root directory for generated files 
 # to the include search path
 
