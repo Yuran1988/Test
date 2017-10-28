@@ -29,6 +29,8 @@ SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMN
 # Project stuff
 # ----------------------------------------------------------------------
 HBPrintConfiguration ;
+HBPrintConfiguration_1 ;
+HBPrintConfiguration_2 ;
 
 SubInclude BT_INTECO_FSM applconfig ;
 SubInclude BT_INTECO_FSM onoff ;
