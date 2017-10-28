@@ -30,9 +30,6 @@ SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMN
 # ----------------------------------------------------------------------
 HBPrintConfiguration ;
 
-##
-### Add statements to include additional subdirectories here
-##
 SubInclude BT_INTECO_FSM applconfig ;
 SubInclude BT_INTECO_FSM onoff ;
 SubInclude BT_INTECO_FSM interfaces ;
