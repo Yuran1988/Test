@@ -22,8 +22,6 @@ SubTreeHdrs $(BT_ROOT) ;
 SubTreeHdrs $(GEN_TARGET) ;
 SubTreeHdrs $(BT_ROOT) deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) ;
 
-SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys qnxcomm ;
-SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys mocca ;
 SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys colibry ;
 SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys dsi ;
 
