@@ -1,0 +1,48 @@
+# ----------------------------------------------------------------------
+#   Project      MoCCAv2
+#   (c) copyright 2004
+#   Company      Harman/Becker Automotive Systems GmbH
+#   All rights reserved
+# ----------------------------------------------------------------------
+#  @file        Jamfile
+#  @author      RBayer
+#----------------------------------------------------------------------
+
+if $(IDE) = VS8
+{
+   SubTreeC++Flags /FC ; #enable full path for VS8 BuildLog (allows navigation by doubleclick)
+}
+SubTree BT_INTECO_FSM ;
+SubTree BT_ROOT base inteco fsm ;
+
+
+### generate doxygen doku
+HBDoxyGen Demo ;
+
+
+# Add the project root and the root directory for generated files 
+# to the include search path
+
+SubTreeHdrs $(BT_ROOT) ;
+SubTreeHdrs $(GEN_TARGET) ;
+SubTreeHdrs $(BT_ROOT) deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) ;
+
+SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys qnxcomm ;
+SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys mocca ;
+SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys colibry ;
+SubInclude BT_ROOT deliveries $(HB_PROJECTNAME) $(HB_TARGETNAME) $(HB_SUBSYSTEMNAME) api sys dsi ;
+
+# ----------------------------------------------------------------------
+# Project stuff
+# ----------------------------------------------------------------------
+HBPrintConfiguration ;
+
+##
+### Add statements to include additional subdirectories here
+##
+SubInclude BT_INTECO_FSM applconfig ;
+SubInclude BT_INTECO_FSM onoff ;
+SubInclude BT_INTECO_FSM interfaces ;
+SubInclude BT_INTECO_FSM lift_component ;
+SubInclude BT_INTECO_FSM cabina_component ;
+
