@@ -1,0 +1,35 @@
+# ----------------------------------------------------------------------
+#  Project      MoCCAv2
+#   (c) copyright 2004
+#  Company      Harman/Becker Automotive Systems GmbH
+#   All rights reserved
+# ----------------------------------------------------------------------
+#  @file        Jamfile
+#  @author      RBayer
+#----------------------------------------------------------------------
+
+SubDir BT_INTECO_FSM applconfig ;
+
+HBServiceDeployGen demo.hbac : 
+   [ HBResolveLibraryGroup SysMoCCAFramework ] # mocca
+   [ HBResolveLibraryGroup SysColibry ] # containers and oswrapper, needed by mocca
+   [ HBResolveLibraryGroup SysColibryNet ] # channels, needed by mocca
+   [ HBResolveLibraryGroup SysQnxcomm ] # sockets, needed by mocca
+   onoff
+   interface_services
+   cabina_component
+   lift_component
+   ;
+
+   #copy text based trace config files to exe directory
+HBLocalTestResources [ FGristFiles showAll.hbtc showProject.hbtc ] ;
+
+#copy batches to use text based trace config files to exe directory
+HBLocalTestResources [ FGristFiles startShowAll.bat startShowProject.bat ] ;
+
+# use text based trace persistance:
+# Executablename.exe --tp=showAll.hbtc
+# or
+# Executablename.exe --tp=showProject.hbtc
+# for more information see user's guide
+   
