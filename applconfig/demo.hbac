@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<componentmanifest.application:ApplicationConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:componentmanifest.application="http:///componentmanifest/application.ecore" xmlns:componentmanifest.description="http:///componentmanifest/description.ecore" xmi:id="ApplicationConfiguration">
+  <description xmi:id="demo.hbac_Description" comment="org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl@5f39b0 (mixed: [], anyAttribute: null)">
+    <subComponents xsi:type="componentmanifest.application:AppComponentReference" xmi:id="OnOffManifest_OnOff_Reference" name="OnOff" comment="">
+      <description xsi:type="componentmanifest.description:SimpleComponentDescription" href="mocca:onoff/OnOffManifest.hbcm#OnOffManifest_Description"/>
+      <portReferences xmi:id="PortReference_OnOff_Providing_api/sys/mocca/pf/appbase/application/root/src/HBRootService_1.0.0">
+        <portDescription href="mocca:onoff/OnOffManifest.hbcm#Providing_api/sys/mocca/pf/appbase/application/root/src/HBRootService_1.0.0"/>
+      </portReferences>
+      <portReferences xmi:id="PortReference_OnOff_Using_interfaces/LiftService_1.1.0_lift" outgoingConnectors="_uJnHEIJbEeel3ect-dxyJQ">
+        <portDescription href="mocca:onoff/OnOffManifest.hbcm#Using_interfaces/LiftService_1.1.0_lift"/>
+      </portReferences>
+    </subComponents>
+    <subComponents xsi:type="componentmanifest.application:AppComponentReference" xmi:id="LiftComponentManifest_LiftComponent_Reference" name="LiftComponent">
+      <description xsi:type="componentmanifest.description:SimpleComponentDescription" href="mocca:lift_component/LiftComponentManifest.hbcm#LiftComponentManifest_Description"/>
+      <portReferences xmi:id="PortReference_LiftComponent_Providing_interfaces/LiftService_1.1.0" incomingConnectors="_uJnHEIJbEeel3ect-dxyJQ">
+        <portDescription href="mocca:lift_component/LiftComponentManifest.hbcm#Providing_interfaces/LiftService_1.1.0"/>
+      </portReferences>
+      <portReferences xmi:id="PortReference_LiftComponent_Using_interfaces/CabinaService_1.0.0_CabinaLeft" outgoingConnectors="_64l20IZbEeeaedxRaTOwmA">
+        <portDescription href="mocca:lift_component/LiftComponentManifest.hbcm#Using_interfaces/CabinaService_1.0.0_CabinaLeft"/>
+      </portReferences>
+      <portReferences xmi:id="PortReference_LiftComponent_Using_interfaces/CabinaService_1.0.0_CabinaRight" outgoingConnectors="_7aeb4IZbEeeaedxRaTOwmA">
+        <portDescription href="mocca:lift_component/LiftComponentManifest.hbcm#Using_interfaces/CabinaService_1.0.0_CabinaRight"/>
+      </portReferences>
+    </subComponents>
+    <subComponents xsi:type="componentmanifest.application:AppComponentReference" xmi:id="CabinaComponentManifest_CabinaComponent_Left_Reference" name="CabinaComponent_Left">
+      <description xsi:type="componentmanifest.description:SimpleComponentDescription" href="mocca:cabina_component/CabinaComponentManifest.hbcm#CabinaComponentManifest_Description"/>
+      <portReferences xmi:id="PortReference_CabinaComponent_Left_Providing_interfaces/CabinaService_1.0.0" incomingConnectors="_64l20IZbEeeaedxRaTOwmA">
+        <portDescription href="mocca:cabina_component/CabinaComponentManifest.hbcm#Providing_interfaces/CabinaService_1.0.0"/>
+      </portReferences>
+    </subComponents>
+    <subComponents xsi:type="componentmanifest.application:AppComponentReference" xmi:id="CabinaComponentManifest_CabinaComponent_Right_Reference" name="CabinaComponent_Right">
+      <description xsi:type="componentmanifest.description:SimpleComponentDescription" href="mocca:cabina_component/CabinaComponentManifest.hbcm#CabinaComponentManifest_Description"/>
+      <portReferences xmi:id="PortReference_CabinaComponent_Right_Providing_interfaces/CabinaService_1.0.0" incomingConnectors="_7aeb4IZbEeeaedxRaTOwmA">
+        <portDescription href="mocca:cabina_component/CabinaComponentManifest.hbcm#Providing_interfaces/CabinaService_1.0.0"/>
+      </portReferences>
+    </subComponents>
+    <connectors xsi:type="componentmanifest.description:AssemblyConnector" xmi:id="_uJnHEIJbEeel3ect-dxyJQ" source="PortReference_OnOff_Using_interfaces/LiftService_1.1.0_lift" target="PortReference_LiftComponent_Providing_interfaces/LiftService_1.1.0"/>
+    <connectors xsi:type="componentmanifest.description:AssemblyConnector" xmi:id="_64l20IZbEeeaedxRaTOwmA" source="PortReference_LiftComponent_Using_interfaces/CabinaService_1.0.0_CabinaLeft" target="PortReference_CabinaComponent_Left_Providing_interfaces/CabinaService_1.0.0"/>
+    <connectors xsi:type="componentmanifest.description:AssemblyConnector" xmi:id="_7aeb4IZbEeeaedxRaTOwmA" source="PortReference_LiftComponent_Using_interfaces/CabinaService_1.0.0_CabinaRight" target="PortReference_CabinaComponent_Right_Providing_interfaces/CabinaService_1.0.0"/>
+  </description>
+  <deployments xsi:type="componentmanifest.application:ApplicationDeployment" xmi:id="_YRXg8uIUEd2sac_pZsBjyQ" name="Default" rootComponent="DeployedComponent_Default_OnOff">
+    <processes xmi:id="_YRXg8-IUEd2sac_pZsBjyQ" name="Demo" comment="Lift application">
+      <threads xmi:id="ServiceThread_RootThread_in_Default_Demo" name="RootThread">
+        <parameters xmi:id="_YRXg9OIUEd2sac_pZsBjyQ" watchdogTimeout="100000" comment="" stackSize="32767"/>
+        <components xmi:id="DeployedComponent_Default_OnOff" componentReference="OnOffManifest_OnOff_Reference"/>
+        <components xmi:id="DeployedComponent_Default_LiftComponent" isForced="true" componentReference="LiftComponentManifest_LiftComponent_Reference"/>
+      </threads>
+      <threads xmi:id="ServiceThread_CabinaThread_in_Default_Demo" name="CabinaThread">
+        <parameters xmi:id="_sMiWUIMfEeee8_ug09UtMA" watchdogTimeout="100000" stackSize="32767">
+          <priorities xmi:id="_FX7mwIMrEeeg55ZhVMqCUw" priorityValue="10"/>
+          <priorities xmi:id="_F61fgIMrEeeg55ZhVMqCUw" isAbsolute="true" osFamily="WIN32"/>
+        </parameters>
+        <components xmi:id="DeployedComponent_Default_CabinaComponent_Left" isForced="true" componentReference="CabinaComponentManifest_CabinaComponent_Left_Reference"/>
+        <components xmi:id="DeployedComponent_Default_CabinaComponent_Right" isForced="true" componentReference="CabinaComponentManifest_CabinaComponent_Right_Reference"/>
+      </threads>
+    </processes>
+    <frameworkConfig xmi:id="_Y5c0oOIUEd2sac_pZsBjyQ">
+      <defaultThreadParameters xmi:id="_Zo-0IOIUEd2sac_pZsBjyQ" watchdogTimeout="10000" stackSize="32767">
+        <priorities xmi:id="_5BMfMIJcEeel3ect-dxyJQ" isAbsolute="true" osFamily="WIN32"/>
+        <priorities xmi:id="_5ugRIIJcEeel3ect-dxyJQ" priorityValue="10"/>
+      </defaultThreadParameters>
+    </frameworkConfig>
+  </deployments>
+</componentmanifest.application:ApplicationConfiguration>
