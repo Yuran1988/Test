@@ -50,10 +50,7 @@
           <priorities xmi:id="_FX7mwIMrEeeg55ZhVMqCUw" priorityValue="10"/>
           <priorities xmi:id="_F61fgIMrEeeg55ZhVMqCUw" isAbsolute="true" osFamily="WIN32"/>
         </parameters>
-<<<<<<< HEAD
-=======
         <components xmi:id="DeployedComponent_Default_CabinaComponent_Right" isForced="true" componentReference="CabinaComponentManifest_CabinaComponent_Right_Reference"/>
->>>>>>> 4975c33... New comp1
       </threads>
     </processes>
     <frameworkConfig xmi:id="_Y5c0oOIUEd2sac_pZsBjyQ">
