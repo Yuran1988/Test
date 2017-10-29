@@ -18,6 +18,7 @@ HBServiceDeployGen demo.hbac :
    onoff
    interface_services
    cabina_component
+   cabina_component1
    lift_component
    ;
 
